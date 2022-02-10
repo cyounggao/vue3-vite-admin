@@ -1,0 +1,214 @@
+#app {
+  .main-container {
+    transition: margin-left .28s;
+    margin-left: $sideBarWidth;
+    position: relative;
+		height: 100%;
+		top: #{$headerHeight + 36px};
+  }
+  .sidebar-container {
+    transition: width 0.28s;
+    width: $sideBarWidth !important;
+    background-color: $sideBarBg;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+		box-shadow: rgba(29, 35, 41, 0.05) 2px 0px 8px 0px;
+    // reset element-ui css
+    .horizontal-collapse-transition {
+      transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+    }
+
+    .scrollbar-wrapper {
+      overflow-x: hidden !important;
+    }
+
+    .el-scrollbar__bar.is-vertical {
+      right: 0px;
+    }
+
+    .el-scrollbar {
+      height: calc(100% - #{$headerHeight});
+    }
+
+    .is-horizontal {
+      display: none;
+    }
+
+    a {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .svg-icon {
+      margin-right: 16px;
+    }
+
+    .sub-el-icon {
+      width: unset;
+			margin-right: 5px;
+			font-size: 16px;
+    }
+
+    .el-menu {
+      border: none;
+      height: 100%;
+      width: 100% !important;
+    }
+
+    // menu hover
+    .submenu-title-noDropdown {
+      
+			font-size: 16px;
+      &:hover {
+        background-color: $subMenuBg !important;
+				color: $sideBarTextActive !important;
+      }
+    }
+		.el-sub-menu__title {
+			font-size: 16px;
+		  &:hover {
+				color: $sideBarTextActive !important;
+		  }
+		}
+    .is-active>.el-sub-menu__title {
+      color: $sideBarTextActive !important;
+    }
+
+    & .nest-menu .el-sub-menu>.el-sub-menu__title,
+    & .el-sub-menu .el-menu-item {
+      min-width: $sideBarWidth !important;
+      &:hover {
+				color: $sideBarTextActive !important;
+				background-color: $subMenuBg !important;
+      }
+			&.is-active{
+				background-color: $subMenuBg !important;
+			}
+    }
+  }
+
+  .hideSidebar {
+    .sidebar-container {
+      width: 54px !important;
+    }
+
+    .main-container {
+      margin-left: 54px;
+    }
+
+    .submenu-title-noDropdown {
+      padding: 0 !important;
+      position: relative;
+
+      .el-tooltip {
+        padding: 0 !important;
+
+        .svg-icon {
+          margin-left: 20px;
+        }
+
+        .sub-el-icon {
+          margin-left: 19px;
+        }
+      }
+    }
+
+    .el-sub-menu {
+      overflow: hidden;
+
+      &>.el-sub-menu__title {
+        padding: 0 !important;
+
+        .svg-icon {
+          margin-left: 20px;
+        }
+
+        .sub-el-icon {
+          margin-left: 19px;
+        }
+
+        .el-sub-menu__icon-arrow {
+          display: none;
+        }
+      }
+    }
+
+    .el-menu--collapse {
+      .el-sub-menu {
+        &>.el-sub-menu__title {
+          &>span {
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            visibility: hidden;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  .el-menu--collapse .el-menu .el-sub-menu {
+    min-width: $sideBarWidth !important;
+  }
+
+}
+
+// when menu collapsed
+.el-menu--vertical {
+  &>.el-menu {
+    .svg-icon {
+      margin-right: 16px;
+    }
+    .sub-el-icon {
+      margin-right: 12px;
+      margin-left: -2px;
+    }
+  }
+
+  .nest-menu .el-sub-menu>.el-sub-menu__title,
+  .el-menu-item {
+    &:hover {
+      background-color: $subMenuBg !important;
+			color: $sideBarTextActive !important;
+    }
+  }
+.el-menu-item
+  // the scroll bar appears when the subMenu is too long
+  >.el-menu--popup {
+    max-height: 100vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar-track-piece {
+      background: #d3dce6;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #99a9bf;
+      border-radius: 20px;
+    }
+  }
+}
+.el-sub-menu__title{
+	line-height: $sideBarHeight;
+	height: $sideBarHeight;
+}
+.el-sub-menu .el-menu-item , .nest-menu .el-menu-item{
+	line-height: $sideBarHeight;
+	height: $sideBarHeight;
+}
+ .el-menu-item{
+	line-height: $sideBarHeight;
+	height: $sideBarHeight;
+}
+.el-menu-item.is-active{
+	background-color: $subMenuBg;
+}

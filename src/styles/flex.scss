@@ -1,0 +1,66 @@
+[flex] {
+    display: flex;
+}
+
+[flex~="dir:row"] {
+    flex-direction: row;
+}
+
+[flex~="dir:row-reverse"] {
+    flex-direction: row-reverse;
+}
+
+[flex~="dir:column"] {
+    flex-direction: column;
+}
+
+[flex~="dir:column-reverse"] {
+    flex-direction: column-reverse;
+}
+
+[flex~="justify:start"] {
+    justify-content: flex-start;
+}
+
+[flex~="justify:end"] {
+    justify-content: flex-end;
+}
+
+[flex~="justify:between"] {
+    justify-content: space-between;
+}
+[flex~="justify:around"] {
+    justify-content: space-around;
+}
+
+[flex~="justify:center"] {
+    justify-content: center;
+}
+
+[flex~="align:start"] {
+    align-items: flex-start;
+}
+
+[flex~="align:end"] {
+    align-items: flex-end;
+}
+
+[flex~="align:center"] {
+    align-items: center;
+}
+
+[flex~="align:baseline"] {
+    align-items: baseline;
+}
+
+[flex~="align:stretch"] {
+    align-items: stretch;
+}
+
+[flex~="wrap"] {
+    flex-wrap: wrap;
+}
+
+[flex~="flex:1"] {
+	flex: 1;
+}

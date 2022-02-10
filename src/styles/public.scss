@@ -1,0 +1,109 @@
+body,
+html {
+	height: 100%;
+	background-color: $mainBg;
+}
+#nprogress .bar {
+	background: $mainColor !important;
+}
+#nprogress .peg {
+	box-shadow: 0 0 10px $mainColor, 0 0 5px $mainColor;
+}
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+[center] {
+	text-align: center !important;
+}
+[left] {
+	text-align: left !important;
+}
+[right] {
+	text-align: right !important;
+}
+.mt10 {
+	margin-top: 10px;
+}
+.mt15 {
+	margin-top: 15px;
+}
+.mt20 {
+	margin-top: 20px;
+}
+.mt30 {
+	margin-top: 30px;
+}
+.mt40 {
+	margin-top: 40px;
+}
+.mb10 {
+	margin-bottom: 10px;
+}
+.mb15 {
+	margin-bottom: 15px;
+}
+.mb20 {
+	margin-bottom: 20px;
+}
+.mb30 {
+	margin-bottom: 30px;
+}
+.mb40 {
+	margin-bottom: 40px;
+}
+.w1200 {
+	width: 1200px;
+	margin: 0 auto;
+	min-width: 1200px;
+}
+.container {
+	min-height: calc(100vh - #{$headerHeight + 36px});
+	padding: 15px;
+}
+
+.card {
+	background-color: $whiteColor;
+	padding: 0 20px;
+	box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.05);
+	border-radius: 4px;
+}
+.border {
+	height: 1px;
+	width: 100%;
+	background-color: $mainBg;
+}
+
+.link {
+	cursor: pointer;
+	transition: all 0.3s linear;
+	&:hover {
+		color: $mainColor !important;
+	}
+}
+
+// 骨架屏
+.skeleton-item {
+	background-color: #f2f2f4;
+	background: linear-gradient(90deg, #f2f2f4 25%, #e6e6e6 37%, #f2f2f4 63%);
+	background-size: 400% 100%;
+	animation: skeleton-loading 1.4s ease infinite;
+	border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+	0% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
+}

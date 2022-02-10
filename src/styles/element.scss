@@ -1,0 +1,54 @@
+.el-breadcrumb__inner a {
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.45);
+}
+
+.el-form-item {
+	margin-bottom: 10px !important;
+}
+
+.el-button--text {
+	padding: 0;
+}
+.el-collapse {
+	border-top: 0px;
+}
+
+.el-form--label-top .el-form-item__label {
+	padding-bottom: 0;
+}
+
+.el-input-group__prepend .el-select .el-input {
+	width: 100px;
+}
+.input-with-select .el-input-group__prepend {
+	background-color: $whiteColor;
+}
+
+.el-dropdown-menu__item.active {
+	color: $mainColor;
+}
+
+
+.el-tooltip__popper,.el-popper {
+	max-width: 600px;
+}
+
+
+.el-date-table td.disabled div {
+	background-color: $mainBg !important;
+}
+
+
+.el-popover {
+	min-width: 120px;
+}
+
+.el-tooltip__popper.is-light {
+	border-color: $borderColor;
+}
+
+.el-button .iconfont {
+	font-size: inherit;
+	margin-right: 5px;
+}

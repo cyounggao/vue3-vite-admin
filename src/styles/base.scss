@@ -1,0 +1,160 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+	display: block;
+	outline: none;
+}
+body {
+	font-size: 14px;
+	color: $fontColor;
+	line-height: 1.4;
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+section,
+header,
+footer,
+button {
+	margin: 0;
+	padding: 0;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	text-size-adjust: none;
+	box-sizing: border-box;
+	font-family: -apple-system, SF UI Display, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei,
+		WenQuanYi Micro Hei, sans-serif;
+	outline: none !important;
+}
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+}
+fieldset,
+img,
+button {
+	border: 0;
+}
+img {
+	vertical-align: top;
+}
+li {
+	list-style: none;
+}
+input {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
+	font-size: 100%;
+}
+i {
+	font-style: normal;
+}
+input,
+select,
+textarea,
+button {
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	outline: none;
+}
+input[type="search"] {
+	-webkit-appearance: textfield;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none;
+}
+input:-webkit-autofill {
+	box-shadow: 0 0 0 1000 white inset;
+}
+input:focus {
+	outline: none;
+}
+a {
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+	color: $mainColor;
+}
+* {
+	&:focus-visible {
+		outline: none;
+	}
+}
+/* chrome & safari 浏览器 */
+/*滚动条整体部分,必须要设置*/
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+	background-color: transparent;
+}
+/*滚动条的轨道*/
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+/*滚动条的滑块按钮*/
+::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+	background-color: rgba(153, 153, 153, 0.3);
+	box-shadow: none;
+}
+/*滚动条的上下两端的按钮*/
+::-webkit-scrollbar-button {
+	height: 0;
+	width: 0;
+	background-color: transparent;
+}
+// *{
+// 	/*三角箭头的颜色*/
+// 	scrollbar-arrow-color: rgba(0,0,0,0);
+// 	/*滚动条滑块按钮的颜色*/
+// 	scrollbar-face-color: rgba(153,153,153,0.3);
+// 	/*滚动条整体颜色*/
+// 	scrollbar-highlight-color: transparent;
+// 	/*滚动条阴影*/
+// 	scrollbar-shadow-color: transparent;
+// 	/*滚动条轨道颜色*/
+// 	scrollbar-track-color: transparent;
+// 	/*滚动条3d亮色阴影边框的外观颜色——左边和上边的阴影色*/
+// 	scrollbar-3dlight-color:transparent;
+// 	/*滚动条3d暗色阴影边框的外观颜色——右边和下边的阴影色*/
+// 	scrollbar-darkshadow-color: transparent;
+// 	/*滚动条基准颜色*/
+// 	scrollbar-base-color: rgba(153,153,153,0.3);
+// }
