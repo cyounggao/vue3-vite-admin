@@ -1,6 +1,6 @@
 ## 简介
 
-使用vue3.x + vite + element-plus,开发的一套后台管理系统模板
+使用vue3.x + vite + element-plus，开发的一套后台管理系统模板
 
 ## 功能
 
@@ -25,6 +25,9 @@ npm config set registry https://registry.npm.taobao.org
 
 # 启动开发环境
 npm run dev
+
+# 账号
+admin / 123456
 ```
 
 ## 打包
@@ -36,7 +39,7 @@ npm run test
 # 生产环境
 npm run build
 ```
-![系统](20220210153948.png)
+![系统](pic.png)
 
 ## 鸣谢
 [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template)
