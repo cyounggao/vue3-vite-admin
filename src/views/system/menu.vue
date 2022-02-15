@@ -14,6 +14,7 @@
 </template>
 <script setup>
 import menu from '@/config/menu';
+// 模拟axios请求
 const getData = () => {
     return new Promise((resove, reject) => {
         setTimeout(() => {
@@ -31,7 +32,7 @@ nextTick(() => {
     console.log(cTable.value.elTable)
 })
 const loadFinish = (res) => {
-    console.log(cTable.value.tableData)
+    console.log(res)
 }
 </script>
 <style lang="scss" scoped>

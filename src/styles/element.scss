@@ -3,10 +3,6 @@
 	color: rgba(0, 0, 0, 0.45);
 }
 
-.el-form-item {
-	margin-bottom: 10px !important;
-}
-
 .el-button--text {
 	padding: 0;
 }
@@ -29,16 +25,14 @@
 	color: $mainColor;
 }
 
-
-.el-tooltip__popper,.el-popper {
+.el-tooltip__popper,
+.el-popper {
 	max-width: 600px;
 }
-
 
 .el-date-table td.disabled div {
 	background-color: $mainBg !important;
 }
-
 
 .el-popover {
 	min-width: 120px;
@@ -51,4 +45,19 @@
 .el-button .iconfont {
 	font-size: inherit;
 	margin-right: 5px;
+}
+.el-loading-mask {
+	&.loading--love {
+		.el-loading-spinner {
+			.circular {
+				background-image: url(../assets/images/loading.svg);
+				background-size: 100% 100%;
+				animation: none;
+			}
+			.path {
+				display: none;
+				animation: none;
+			}
+		}
+	}
 }

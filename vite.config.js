@@ -13,6 +13,7 @@ import defaultSettings from "./setting.js"
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	base: '/vue3-admin/',
 	// 开发服务器配置
 	server: {
 		// host: '127.0.0.1',

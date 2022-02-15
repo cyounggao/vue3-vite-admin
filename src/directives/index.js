@@ -26,7 +26,8 @@ export default {
 					loadingInstance = ElLoading.service({
 						target: el,
 						lock: true,
-						text: "加载中..."
+						text: '加载中',
+						// customClass: 'loading--love'
 					})
 				} if (!binding.value && loadingInstance) {
 					loadingInstance.close()

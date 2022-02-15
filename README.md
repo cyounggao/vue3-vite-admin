@@ -41,5 +41,7 @@ npm run build
 ```
 ![系统](pic.png)
 
+[预览](https://cyounggao.github.io/vue3-admin/)
+
 ## 鸣谢
 [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template)

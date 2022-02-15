@@ -3,13 +3,13 @@
 		<div class="login-wrap card">
 			<h2>欢迎使用~</h2>
 			<h3>{{ setting.title }}</h3>
-			<el-form ref="loginForm" :model="loginData" class="user-form" :rules="loginRules">
+			<el-form ref="loginForm" :model="loginData" :rules="loginRules" size="large">
 				<el-form-item prop="username">
 					<el-input
 						v-model="loginData.username"
 						type="text"
 						clearable
-						prefix-icon="el-icon-user-solid"
+						:prefix-icon="User"
 						placeholder="请输入用户名"
 					/>
 				</el-form-item>
@@ -19,7 +19,7 @@
 						type="password"
 						clearable
 						placeholder="请输入登录密码"
-						prefix-icon="el-icon-lock"
+						:prefix-icon="Lock"
 					/>
 				</el-form-item>
 				<el-form-item>
@@ -33,7 +33,7 @@
 <script setup>
 import setting from '/setting'
 import { utf8to16 } from '@/utils'
-import { onBeforeUnmount } from 'vue';
+import { User, Lock } from '@element-plus/icons-vue'
 const route = useRoute()
 const router = useRouter()
 const store = useStore()
@@ -110,6 +110,7 @@ const login = () => {
 	@include css3Center;
 	width: 440px;
 	padding: 20px 50px;
+	top: 30%;
 }
 
 h2 {

@@ -1,5 +1,4 @@
 <template>
-<!-- 心形加载动画 -->
     <svg
         :width="(size * list.length + gap * (list.length - 1))"
         height="150"

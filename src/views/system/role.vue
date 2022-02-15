@@ -36,6 +36,6 @@ nextTick(() => {
 })
 // 加载完成回调
 const loadFinish = (res) => {
-    console.log(cTable.value.tableData)
+    console.log(res)
 }
 </script>
