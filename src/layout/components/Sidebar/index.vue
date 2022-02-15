@@ -6,9 +6,9 @@
         ref="myElMenu"
         :default-active="activeMenu"
         :collapse="sidebarStatus"
-        :background-color="variablesObj.sideBarBg"
-        :text-color="variablesObj.sideBarText"
-        :active-text-color="variablesObj.sideBarTextActive"
+        :background-color="variables.sideBarBg"
+        :text-color="variables.sideBarText"
+        :active-text-color="variables.sideBarTextActive"
         :collapse-transition="false"
         mode="vertical"
       >
@@ -30,9 +30,7 @@ import SidebarItem from './SidebarItem.vue'
 import Logo from './Logo.vue'
 import setting from '/setting'
 // 获取scss变量
-import variables from '@/styles/variables-export.scss'
-import { getScssObj } from '@/utils'
-const variablesObj = getScssObj(variables)
+import variables from '@/styles/variables.module.scss'
 
 let permissionRoutes = computed(() => {
   return store.getters.permissionRoutes
