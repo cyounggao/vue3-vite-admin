@@ -149,12 +149,10 @@ const getData = () => {
     state.loading = true
     props.api(params).then(res => {
         state.loading = false
+        state.tableData = getValueByPath(res, props.listPath)
         // 如果有分页
         if (props.paging) {
-            state.tableData = getValueByPath(res, props.listPath)
             state.tableCount = getValueByPath(res, props.totalPath)
-        } else {
-            state.tableData = getValueByPath(res, props.listPath)
         }
         emit('load-finish', res)
     }).catch((err) => {
@@ -218,7 +216,7 @@ let { tableCount, tableData, loading, loadingDown } = toRefs(state)
 let tableInstance = ref(null)
 // 暴露出去事件、数据
 defineExpose({
-    tableData: tableData,
+    tableData,
     elTable: tableInstance,
     reload
 })

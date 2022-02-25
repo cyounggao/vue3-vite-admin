@@ -8,10 +8,13 @@ import {
 } from './token.js'
 
 let lock = false
+let cancelToken = axios.CancelToken
+// 以请求的url为key，将pending中的请求放到pendingObj中
+let pendingObj = {}
 const request = axios.create({
 	baseURL: host.api, // url = base url + request url
 	withCredentials: true, // 是否在跨域请求时发送Cookie
-	timeout: 5000 // 超时时间
+	timeout: 6000 // 超时时间
 })
 // 发请求之前
 /**
@@ -22,9 +25,30 @@ const request = axios.create({
  * data: 请求的参数
  * seq： axios串联时的先后顺序，f:第一个(执行完毕后计数不减1) / m:中间的(请求发起时计数+1，完成时计数-1) / l:最后一个(执行前计数不加1),默认m
  * download:  开启文件下载
+ * cancel: 当相同url再次请求时，如果上一个请求还未完成，则会取消请求，cancel为false时不取消
  */
 request.interceptors.request.use(
 	config => {
+		const url = config.baseUR + config.url
+		let objItem = pendingObj[url]
+		if (!config.cancel) {
+			if (objItem) {
+				// 执行取消函数
+				objItem.cancel({
+					// 传递 config配置参数 和取消的标志
+					...objItem.config,
+					cancel: true
+				})
+				// 删除key
+				delete pendingObj[url]
+			}
+			config.cancelToken = new cancelToken((c) => {
+				pendingObj[url] = {
+					cancel: c,
+					config
+				}
+			})
+		}
 		config.headers['Authorization'] = getToken()
 		config.headers['language'] = store.getters.language
 		config.method = config.method || 'post'
@@ -47,10 +71,7 @@ request.interceptors.request.use(
 			config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 			config.data = qs.stringify(config.data)
 		}
-		if (
-			(config.seq === 'm' || config.seq === 'f') &&
-			!config.noLoad
-		) {
+		if ((config.seq === 'm' || config.seq === 'f') && !config.noLoad) {
 			store.commit('app/CHANGE_COUNT', store.getters.requestCount + 1)
 			if (store.getters.requestCount > 0) {
 				store.commit('app/OPEN_LOADING')
@@ -65,11 +86,12 @@ request.interceptors.request.use(
 // 请求完成
 request.interceptors.response.use(
 	response => {
-		if (
-			(response.config.seq === 'm' ||
-				response.config.seq === 'l') &&
-			!response.config.noLoad
-		) {
+		// 请求完成删除key
+		if (response.config.cancel) {
+			delete pendingObj[response.config.url]
+			store.commit('app/CHANGE_REQUEST', pendingObj)
+		}
+		if ((response.config.seq === 'm' || response.config.seq === 'l') && !response.config.noLoad) {
 			store.commit('app/CHANGE_COUNT', store.getters.requestCount - 1)
 			if (store.getters.requestCount === 0) {
 				store.commit('app/CLOSE_LOADING')
@@ -111,16 +133,17 @@ request.interceptors.response.use(
 		}
 	},
 	error => {
-		const response = error.response || { config: {} }
-		if (
-			(response.config.seq === 'm' ||
-				response.config.seq === 'l') &&
-			!response.config.noLoad
-		) {
+		const response = error.response || {}
+		const config = response.config || error.message || {}
+		if ((config.seq === 'm' || config.seq === 'l') && !config.noLoad) {
 			store.commit('app/CHANGE_COUNT', store.getters.requestCount - 1)
 			if (store.getters.requestCount === 0) {
 				store.commit('app/CLOSE_LOADING')
 			}
+		}
+		// 错误原因为取消的时候，不弹出错误提示
+		if (config.cancel) {
+			return Promise.reject('cancel')
 		}
 		const res = response.data || {}
 		if (res.code === 401) {

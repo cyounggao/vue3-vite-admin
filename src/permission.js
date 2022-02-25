@@ -23,6 +23,16 @@ const blackMap = {
 	Login: true
 }
 router.beforeEach(async (to, from, next) => {
+	// 路由切换的时候清除掉之前正在pending的请求
+	let obj = store.getters.pendingRequest
+	for (let key in obj) {
+		obj[key].fun({
+			...obj[key].config,
+			cancel: true
+		})
+	}
+	// 清空pendingRequest
+	store.commit('app/CHANGE_REQUEST', {})
 	NProgress.start()
 	const hasToken = getToken()
 	if (hasToken) {

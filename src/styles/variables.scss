@@ -6,14 +6,12 @@ $fontColor:#333; //字体
 $fontColor6:#666;
 $fontColor9:#999;
 $borderColor: #EEE;
-$mainBg1:#E7E9EA;
 
-$menuActive: #42b98322;
-$headerHeight: 54px;
+$headerHeight: 54px; //头部高度
 // sideBar
-$sideBarWidth: 216px;
-$sideBarHeight: 48px;
-$sideBarBg: #304156;
-$sideBarText: #bfcbd9;
-$sideBarTextActive: var(--el-color-primary);
-$subMenuBg: #1f2d3d;
+$sideBarWidth: 216px; //侧边栏宽度
+$sideBarHeight: 48px; //侧边栏子项高度
+$sideBarBg: #304156; //侧边栏背景颜色
+$sideBarText: #bfcbd9; //侧边栏文字颜色
+$sideBarTextActive: var(--el-color-primary);  //侧边栏菜单激活文字颜色
+$subMenuBg: #1f2d3d;  //侧边栏菜单激活背景颜色

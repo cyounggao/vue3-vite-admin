@@ -66,8 +66,8 @@ const loginRules = {
 	]
 }
 let loginData = reactive({
-	username: "",
-	password: ""
+	username: "admin",
+	password: "123456"
 })
 
 let loading = ref(false)

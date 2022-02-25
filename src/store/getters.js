@@ -1,5 +1,6 @@
 const getters = {
   requestCount: state => state.app.requestCount,
+  pendingRequest: state => state.app.pendingRequest,
   sidebarStatus: state => state.app.sidebarStatus,
   pageLoading: state => state.app.pageLoading,
   menuLoading: state => state.app.menuLoading,
